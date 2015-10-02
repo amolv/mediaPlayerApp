@@ -50,5 +50,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
+  .state('app.mergepdf', {
+    url: "/mergepdf",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/mergepdf.html",
+        controller: 'MergePdf'
+      }
+    }
+  })
+
   $urlRouterProvider.otherwise('/app/browse');
 });
