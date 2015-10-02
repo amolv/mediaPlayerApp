@@ -15,10 +15,22 @@
     "shelljs": "^0.3.0"
   },
   "cordovaPlugins": [
+<<<<<<< HEAD
     "https://github.com/dawsonloudon/VideoPlayer.git",
     "cordova-plugin-media",
     "ionic-plugin-keyboard",
     "org.apache.cordova.file"
   ],
   "cordovaPlatforms": []
+=======
+    "org.apache.cordova.file",
+    "ionic-plugin-keyboard",
+    "cordova-plugin-file",
+    "cordova-plugin-media",
+    "https://github.com/dawsonloudon/VideoPlayer.git"
+  ],
+  "cordovaPlatforms": [
+    "ios"
+  ]
+>>>>>>> 6d2f1eef7b959439068b657f9f9e8d720d9c1a7b
 }
