@@ -20,7 +20,5 @@
     "ionic-plugin-keyboard",
     "org.apache.cordova.file"
   ],
-  "cordovaPlatforms": [
-    "android"
-  ]
+  "cordovaPlatforms": []
 }
