@@ -42,9 +42,6 @@
     <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
-</widget>
-=======
->>>>>>> 5ca48c9bacf20030e54e462224cbe6540f9b4552
   <preference name="iosExtraFilesystems" value="library,library-nosync,documents,documents-nosync,cache,bundle,root" />
   <preference name="AndroidExtraFilesystems" value="files,files-external,documents,sdcard,cache,cache-external,root" />
   <feature name="StatusBar">
@@ -79,4 +76,4 @@
     <splash src="resources/ios/splash/Default~iphone.png" height="480" width="320"/>
   </platform>
 </widget>
->>>>>>> 6d2f1eef7b959439068b657f9f9e8d720d9c1a7b
+
