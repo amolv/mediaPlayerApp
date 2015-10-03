@@ -70,6 +70,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
+    .state('app.upload', {
+    url: "/upload",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/uploadFile.html",
+        controller: 'uploadFile'
+      }
+    }
+  })
+
     .state('app.cordovaFileTransfer', {
     url: "/cordovaFileTransfer",
     views: {
@@ -81,5 +91,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
 
-  $urlRouterProvider.otherwise('/app/cordovaFileTransfer');
+  $urlRouterProvider.otherwise('/app/browse');
 });

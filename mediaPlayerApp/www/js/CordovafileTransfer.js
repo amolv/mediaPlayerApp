@@ -1,6 +1,5 @@
 angular.module('starter.controllers')
 .controller('cordovaFileTransfer', ['$rootScope', '$scope', function($rootScope, $scope) {
-	console.log("cordovaFileTransfer");
 	$scope.download = function() {
 	    $rootScope.show('Loading...');
 	    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
@@ -28,7 +27,7 @@ angular.module('starter.controllers')
 	                                $scope.imgFile = entry.toURL();
 	                            },
 	                            function(error) {
-	                                $ionicLoading.hide();
+	                                $rootScope.hide();
 	                                alert("Download Error Source -> " + error.source);
 	                            },
 	                            false,
@@ -36,7 +35,7 @@ angular.module('starter.controllers')
 	                        );
 	                    }, 
 	                    function() {
-	                        $ionicLoading.hide();
+	                        $rootScope.hide();
 	                        console.log("Get file failed");
 	                    }
 	                );
@@ -44,7 +43,7 @@ angular.module('starter.controllers')
 	        );
 	    },
 	    function() {
-	        $ionicLoading.hide();
+	        $rootScope.hide();
 	        console.log("Request for filesystem failed");
 	    });
 	}
