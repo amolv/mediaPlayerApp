@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic','ngCordova', 'starter.controllers', 'starter.services','pdf'])
 
 .run(function($ionicPlatform, $rootScope, $ionicLoading) {
   $ionicPlatform.ready(function() {
@@ -80,6 +80,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
+  .state('app.download', {
+    url: "/download",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/download.html",
+        controller: 'download'
+      }
+    }
+  })
+
     .state('app.cordovaFileTransfer', {
     url: "/cordovaFileTransfer",
     views: {
@@ -91,5 +101,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
 
-  $urlRouterProvider.otherwise('/app/browse');
+  $urlRouterProvider.otherwise('/app/upload');
 });
