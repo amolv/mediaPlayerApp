@@ -18,7 +18,8 @@
     "https://github.com/dawsonloudon/VideoPlayer.git",
     "cordova-plugin-media",
     "ionic-plugin-keyboard",
-    "org.apache.cordova.file"
+    "org.apache.cordova.file",
+    "https://github.com/MaginSoft/MFileChooser.git"
   ],
   "cordovaPlatforms": [
     "ios",

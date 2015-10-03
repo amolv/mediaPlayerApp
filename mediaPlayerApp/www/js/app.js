@@ -60,5 +60,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  $urlRouterProvider.otherwise('/app/browse');
+  .state('app.browseExternal', {
+    url: "/browseExternal",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/browseExternal.html",
+        controller: 'browseExternal'
+      }
+    }
+  })
+
+  $urlRouterProvider.otherwise('/app/browseExternal');
 });
