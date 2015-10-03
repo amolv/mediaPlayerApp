@@ -1,0 +1,10 @@
+<ion-view view-title="Download">
+	<ion-content>
+		<button class="button" ng-click="download()">Download</button>
+		<button class="button" ng-click="load()">Load</button>
+		{{imgFile}}
+		<ion-scroll direction="xy" zooming="true" style="position:fixed;margin-top: 20%;display:inline;top:42px;right:0;bottom:0;left:0;">
+      <pdf-viewer delegate-handle="my-pdf-container"  url="imgFile" scale="0.670" ></pdf-viewer>
+    </ion-scroll>
+		</ion-content>
+</ion-view>
