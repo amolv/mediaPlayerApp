@@ -70,5 +70,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  $urlRouterProvider.otherwise('/app/browseExternal');
+  $urlRouterProvider.otherwise('/app/browse');
 });
