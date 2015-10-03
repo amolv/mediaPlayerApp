@@ -70,5 +70,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  $urlRouterProvider.otherwise('/app/browse');
+    .state('app.cordovaFileTransfer', {
+    url: "/cordovaFileTransfer",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/cordovaFileTransfer.html",
+        controller: 'cordovaFileTransfer'
+      }
+    }
+  })
+
+
+  $urlRouterProvider.otherwise('/app/cordovaFileTransfer');
 });

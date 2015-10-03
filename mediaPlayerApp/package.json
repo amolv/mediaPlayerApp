@@ -19,7 +19,8 @@
     "cordova-plugin-media",
     "ionic-plugin-keyboard",
     "org.apache.cordova.file",
-    "https://github.com/MaginSoft/MFileChooser.git"
+    "https://github.com/MaginSoft/MFileChooser.git",
+    "org.apache.cordova.file-transfer"
   ],
   "cordovaPlatforms": [
     "ios",
