@@ -1,5 +1,5 @@
 angular.module('starter.controllers')
-.controller('browseExternal', ['$rootScope', '$scope', function($rootScope, $scope) {
+.controller('browseExternal', ['$rootScope', '$scope','pdfDelegate', function($rootScope, $scope,pdfDelegate) {
 
 	$scope.filepathChooser = function() {
 		window.plugins.mfilechooser.open(['.pdf'], function (uri) {
