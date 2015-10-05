@@ -5,6 +5,9 @@ angular.module('starter.controllers')
 	$scope.pdfUrl ="http://n2.transparent.sg:3000/assets/pdfs/test/1444051485976.pdf"
 	pdfDelegate.$getByHandle('my-pdf-container').load($scope.pdfUrl);
 
+		var currPage = 1; //Pages are 1-based not 0-based
+		var numPages = 0;
+		//var thePDF = null;
 
 		PDFJS.getDocument($scope.pdfUrl).then(function(pdf) {
 
@@ -26,7 +29,8 @@ angular.module('starter.controllers')
 			var viewport = page.getViewport( 1 );
 
 			//We'll create a canvas for each page to draw it on
-			var canvas = document.createElement( "canvas" );
+			var canvas = document.getElementById( "canvas" );
+			console.log(canvas);
 			canvas.style.display = "block";
 			var context = canvas.getContext('2d');
 			canvas.height = viewport.height;
@@ -36,7 +40,7 @@ angular.module('starter.controllers')
 			page.render({canvasContext: context, viewport: viewport});
 
 			//Add it to the web page
-			document.body.appendChild( canvas );
+			document.getElementById('to-pdf').appendChild( canvas );
 
 			//Move to next page
 			currPage++;
@@ -44,6 +48,12 @@ angular.module('starter.controllers')
 			{
 			thePDF.getPage( currPage ).then( handlePages );
 			}
+			
+			var pdf = new jsPDF('p','pt','a4');
+			pdf.addHTML(document.getElementById('to-pdf'),function() {
+			pdf.save('web.pdf');
+			});
+
 		}
 
 
@@ -113,7 +123,7 @@ angular.module('starter.controllers')
 		confirmPopup.then(function(res) {
 			if(res) {
 				var img2 = document.getElementById('signatureCanvas');
-				var canvas = document.getElementById("canvas");
+				var canvas = document.getElementById("canvas2");
 				var context = canvas.getContext("2d");
 
 				var canvas1 = document.getElementById("canvas1");
