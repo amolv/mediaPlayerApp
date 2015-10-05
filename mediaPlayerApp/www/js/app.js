@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic','ngCordova', 'starter.controllers', 'starter.services','pdf'])
+angular.module('starter', ['ionic','ngCordova', 'starter.controllers', 'starter.services','pdf','ngSignaturePad'])
 
 .run(function($ionicPlatform, $rootScope, $ionicLoading) {
   $ionicPlatform.ready(function() {
