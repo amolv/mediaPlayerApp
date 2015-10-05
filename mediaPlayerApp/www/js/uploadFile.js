@@ -4,7 +4,7 @@ angular.module('starter.controllers')
 	$scope.updateattachment = function(){
 		angular.forEach(document.getElementById("file_browse").files, function(file) {
 			var newfile = file;
-			console.log(newfile);
+			alert(newfile.webkitRelativePath);
 			var oFReader = new FileReader();
 			oFReader.onload = function (oFREvent) {
 			$scope.imagefiles.push(oFReader.result);
