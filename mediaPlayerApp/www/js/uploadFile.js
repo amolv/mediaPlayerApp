@@ -108,7 +108,7 @@ angular.module('starter.controllers')
     var canvasPosition = getPosition(img2);
     console.log(canvasPosition.x);
     console.log(canvasPosition.y);
-    var canvas = document.getElementById("to-pdf");
+    var canvas = document.getElementById("canvas3");
     var context = canvas.getContext("2d");
     var width = img1.width;
     var height = img1.height;
@@ -121,11 +121,14 @@ angular.module('starter.controllers')
     context.moveTo(canvasPosition.x-98,canvasPosition.y-280);
     context.lineTo(canvasPosition.x,canvasPosition.y);
     context.drawImage(img2,0, 0 );
-
-		var pdf = new jsPDF('p','pt','a4');
-		pdf.addHTML(document.body,function() {
-		pdf.save('web.pdf');
-		});
+		
+		var dataURL = canvas.toDataURL();
+		console.log(dataURL);
+	// var imgData = canvas.toDataURL("image/jpeg", 1.0);
+	// var pdf = new jsPDF();
+	// pdf.addImage(imgData, 'JPEG', 0, 0);
+	// pdf.save("download.pdf");
+  }
 
 
 })
