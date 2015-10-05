@@ -1,9 +1,14 @@
 <ion-view view-title="uploadFile">
     <ion-content>
 		<input type="file" accept="*/*" capture="camera" id="file_browse" onchange="angular.element(this).scope().updateattachment()" multiple/>
-		<button class="button button-positive" style="position: absolute;right: 30px;" ng-click="getTouchposition()">
-                      sign
-            </button>
 		<pdf-viewer delegate-handle="my-pdf-container"  url="pdfUrl" scale="0.670" ></pdf-viewer>
     </ion-content>
+    <ion-footer-bar  class="bar">
+		  <div class="buttons">
+		    <button class="button">Cancel</button>
+		  </div>
+		  <div class="buttons" ng-click="doSomething()">
+		    <button class="button">Touch to Sign</button>
+		  </div>
+	</ion-footer-bar>
 </ion-view>
