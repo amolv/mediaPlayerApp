@@ -5,7 +5,6 @@ angular.module('starter.controllers')
 	$scope.pdfUrl ="http://n2.transparent.sg:3000/assets/pdfs/test/1444037006795.pdf"
 	pdfDelegate.$getByHandle('my-pdf-container').load($scope.pdfUrl);
 
-	//$scope.modal.show();
 	$scope.updateattachment = function(){
 		angular.forEach(document.getElementById("file_browse").files, function(file) {
 			var newfile = file;
@@ -39,6 +38,28 @@ angular.module('starter.controllers')
 		});
 	};
 
+	  function getPosition(element) {
+	    var xPosition = 0;
+	    var yPosition = 0;
+
+	    while(element) {
+	        xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+	        yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+          element = element.offsetParent;
+	    }
+	    return { x: xPosition, y: yPosition };
+	}
+	
+		var draggable = document.getElementById('canvas1');
+	draggable.addEventListener('touchmove', function(event) {
+	    var touch = event.targetTouches[0];
+	    // Place element where the finger is
+	    draggable.style.left = touch.pageX-80 + 'px';
+	    draggable.style.top = touch.pageY-80 + 'px';
+      //console.log(draggable.style.left+''+draggable.style.top);
+	    event.preventDefault();
+  	}, false);
+
 
 	$scope.getTouchposition = function(event){
 
@@ -49,7 +70,6 @@ angular.module('starter.controllers')
 		});
 		confirmPopup.then(function(res) {
 			if(res) {
-				$scope.hide = true;
 				var img2 = document.getElementById('signatureCanvas');
 				var canvas = document.getElementById("canvas");
 				var context = canvas.getContext("2d");
@@ -80,14 +100,28 @@ angular.module('starter.controllers')
 		});
 	}
 
-		var draggable = document.getElementById('canvas1');
-	draggable.addEventListener('touchmove', function(event) {
-	    var touch = event.targetTouches[0];
-	    // Place element where the finger is
-	    draggable.style.left = touch.pageX-80 + 'px';
-	    draggable.style.top = touch.pageY-80 + 'px';
-      //console.log(draggable.style.left+''+draggable.style.top);
-	    event.preventDefault();
-  	}, false);
+	$scope.merge = function(event){
+    console.log("Merge");
+    $scope.hide_old=true;
+    var img2 = document.getElementById('canvas1');
+    var img1 = document.getElementById('img1');
+    var canvasPosition = getPosition(img2);
+    console.log(canvasPosition.x);
+    console.log(canvasPosition.y);
+    var canvas = document.getElementById("canvas3");
+    var context = canvas.getContext("2d");
+    var width = img1.width;
+    var height = img1.height;
+    canvas.width = width;
+    canvas.height = height;
+    var pixels = 4 * width * height;
+    context.drawImage(img1, 0, 0);
+    var image1 = context.getImageData(0, 0, width, height);
+    var imageData1 = image1.data;
+    context.moveTo(canvasPosition.x-98,canvasPosition.y-280);
+    context.lineTo(canvasPosition.x,canvasPosition.y);
+    context.drawImage(img2,0, 0 );
+  }
+
 
 })
