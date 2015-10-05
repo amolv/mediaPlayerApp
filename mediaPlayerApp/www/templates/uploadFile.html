@@ -1,9 +1,9 @@
 <ion-view view-title="uploadFile">
-    <ion-content>
+    <ion-content scroll="false">
 		<input type="file" accept="*/*" capture="camera" id="file_browse" onchange="angular.element(this).scope().updateattachment()" multiple/>
 		<pdf-viewer delegate-handle="my-pdf-container"  url="pdfUrl" scale="0.670" ></pdf-viewer>
-		<p ng-hide="true">with sigh<br><canvas id="canvas"></canvas></p>
-		<p ng-hide="hide">with  sigh<br><canvas id="canvas1"></canvas></p>
+		<p ng-hide="true"><br><canvas id="canvas"></canvas></p>
+		<p ng-hide='hide!=true'><br><canvas id="canvas1"></canvas></p>
 		<canvas id="canvas3"></canvas>
     </ion-content>
     <ion-footer-bar  class="bar">

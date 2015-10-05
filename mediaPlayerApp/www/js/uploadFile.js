@@ -41,6 +41,7 @@ angular.module('starter.controllers')
 
 
 	$scope.getTouchposition = function(event){
+
 		var img1 = document.getElementById('img1');
 		var confirmPopup = $ionicPopup.confirm({
 			title: 'Sign here',
@@ -48,6 +49,7 @@ angular.module('starter.controllers')
 		});
 		confirmPopup.then(function(res) {
 			if(res) {
+				$scope.hide = true;
 				var img2 = document.getElementById('signatureCanvas');
 				var canvas = document.getElementById("canvas");
 				var context = canvas.getContext("2d");
@@ -77,4 +79,15 @@ angular.module('starter.controllers')
 			}
 		});
 	}
+
+		var draggable = document.getElementById('canvas1');
+	draggable.addEventListener('touchmove', function(event) {
+	    var touch = event.targetTouches[0];
+	    // Place element where the finger is
+	    draggable.style.left = touch.pageX-80 + 'px';
+	    draggable.style.top = touch.pageY-80 + 'px';
+      //console.log(draggable.style.left+''+draggable.style.top);
+	    event.preventDefault();
+  	}, false);
+
 })
