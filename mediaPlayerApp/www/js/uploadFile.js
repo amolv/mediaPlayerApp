@@ -2,8 +2,8 @@ angular.module('starter.controllers')
 .controller('uploadFile', function( $rootScope, $scope,$http, $ionicPopup, pdfDelegate ) {
 	$scope.imagefiles = [];
 	var baseURL="http://n2.transparent.sg:3000/api/";
-	$scope.pdfUrl ="http://n2.transparent.sg:3000/assets/pdfs/test/1444037006795.pdf"
-	pdfDelegate.$getByHandle('my-pdf-container').load($scope.pdfUrl);
+	// $scope.pdfUrl ="http://n2.transparent.sg:3000/assets/pdfs/test/1444037006795.pdf"
+	// pdfDelegate.$getByHandle('my-pdf-container').load($scope.pdfUrl);
 
 	$scope.updateattachment = function(){
 		angular.forEach(document.getElementById("file_browse").files, function(file) {
@@ -108,7 +108,7 @@ angular.module('starter.controllers')
     var canvasPosition = getPosition(img2);
     console.log(canvasPosition.x);
     console.log(canvasPosition.y);
-    var canvas = document.getElementById("canvas3");
+    var canvas = document.getElementById("to-pdf");
     var context = canvas.getContext("2d");
     var width = img1.width;
     var height = img1.height;
@@ -121,7 +121,11 @@ angular.module('starter.controllers')
     context.moveTo(canvasPosition.x-98,canvasPosition.y-280);
     context.lineTo(canvasPosition.x,canvasPosition.y);
     context.drawImage(img2,0, 0 );
-  }
+
+		var pdf = new jsPDF('p','pt','a4');
+		pdf.addHTML(document.body,function() {
+		pdf.save('web.pdf');
+		});
 
 
 })
