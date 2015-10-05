@@ -1,5 +1,9 @@
 <ion-view view-title="Select Pdf file and Merge">
     <ion-content>
-		<input type="file" />      
+		<input type="text" data-ng-model="param.file"  />      
+		<button ng-click="showpdfincanvas()">Show Pdf</button>
+
+		<div id="the-canvas"></div>
+
     </ion-content>
 </ion-view>
