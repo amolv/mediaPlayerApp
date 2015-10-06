@@ -2,7 +2,7 @@ angular.module('starter.controllers')
 .controller('uploadFile', function( $rootScope, $scope,$http, $ionicPopup, pdfDelegate ) {
 	$scope.imagefiles = [];
 	var baseURL="http://n2.transparent.sg:3000/api/";
-	$scope.pdfUrl ="http://n2.transparent.sg:3000/assets/pdfs/test/1444037006795.pdf"
+	$scope.pdfUrl ="http://n2.transparent.sg:3000/assets/pdfs/test/1444135677342.pdf"
 	pdfDelegate.$getByHandle('my-pdf-container').load($scope.pdfUrl);
 	console.log(pdfDelegate.getPageCount() );
 
@@ -29,7 +29,7 @@ angular.module('starter.controllers')
 			var viewport = page.getViewport( 1 );
 
 			//We'll create a canvas for each page to draw it on
-			var canvas = document.getElementById( "canvas" );
+			var canvas = document.getElementById( "test" );
 			console.log(canvas);
 			canvas.style.display = "block";
 			var context = canvas.getContext('2d');
@@ -44,6 +44,7 @@ angular.module('starter.controllers')
 
 			//Move to next page
 			currPage++;
+			console.log(currPage);
 			if ( thePDF !== null && currPage <= numPages )
 			{
 			thePDF.getPage( currPage ).then( handlePages );
