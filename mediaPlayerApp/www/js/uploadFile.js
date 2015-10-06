@@ -121,8 +121,9 @@ angular.module('starter.controllers')
 		});
 		confirmPopup.then(function(res) {
 			if(res) {
+				$scope.pdfhide=true;
 				var img2 = document.getElementById('signatureCanvas');
-				var canvas = document.getElementById("canvas2");
+				var canvas = document.getElementById("canvas");
 				var context = canvas.getContext("2d");
 
 				var canvas1 = document.getElementById("canvas1");
@@ -180,9 +181,9 @@ angular.module('starter.controllers')
 	// // var pdf = new jsPDF();
 	// // pdf.addImage(imgData, 'JPEG', 0, 0);
 	// // pdf.save("download.pdf");
-	var pdf = new jsPDF('p','pt','a4');
-	pdf.addHTML(document.body,function() {
-	pdf.save('web.pdf');
+	// var pdf = new jsPDF('p','pt','a4');
+	// pdf.addHTML(document.body,function() {
+	// pdf.save('web.pdf');
 });
   }
 
