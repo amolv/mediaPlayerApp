@@ -2,8 +2,8 @@ angular.module('starter.controllers')
 .controller('uploadFile', function( $rootScope, $scope,$http, $ionicPopup, pdfDelegate ) {
 	$scope.imagefiles = [];
 	var baseURL="http://n2.transparent.sg:3000/api/";
-	$scope.pdfUrl ="http://n2.transparent.sg:3000/assets/pdfs/test/1444037006795.pdf"
-	pdfDelegate.$getByHandle('my-pdf-container').load($scope.pdfUrl);
+	/*$scope.pdfUrl ="http://n2.transparent.sg:3000/assets/pdfs/test/1444037006795.pdf"
+	pdfDelegate.$getByHandle('my-pdf-container').load($scope.pdfUrl);*/
 
 	console.log( pdfDelegate.getPageCount() );
 		// var currPage = 1; //Pages are 1-based not 0-based
