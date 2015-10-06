@@ -5,6 +5,7 @@ angular.module('starter.controllers')
 	$scope.pdfUrl ="http://n2.transparent.sg:3000/assets/pdfs/test/1444037006795.pdf"
 	pdfDelegate.$getByHandle('my-pdf-container').load($scope.pdfUrl);
 
+	console.log( pdfDelegate.getPageCount() );
 		// var currPage = 1; //Pages are 1-based not 0-based
 		// var numPages = 0;
 		// //var thePDF = null;
