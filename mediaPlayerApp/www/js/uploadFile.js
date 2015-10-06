@@ -153,38 +153,38 @@ angular.module('starter.controllers')
 	}
 
 	$scope.merge = function(event){
-    console.log("Merge");
-    console.log(pdfDelegate);
-    $scope.hide_old=true;
-    var img2 = document.getElementById('canvas1');
-    var img1 = document.getElementById('img1');
-    var canvasPosition = getPosition(img2);
-    console.log(canvasPosition.x);
-    console.log(canvasPosition.y);
-    var canvas = document.getElementById("to-pdf");
-    var context = canvas.getContext("2d");
-    var width = img1.width;
-    var height = img1.height;
-    canvas.width = width;
-    canvas.height = height;
-    var pixels = 4 * width * height;
-    context.drawImage(img1, 0, 0);
-    var image1 = context.getImageData(0, 0, width, height);
-    var imageData1 = image1.data;
-    context.moveTo(canvasPosition.x-98,canvasPosition.y-280);
-    context.lineTo(canvasPosition.x,canvasPosition.y);
-    context.drawImage(img2,0, 0 );
+	    
+	    
+	    $scope.hide_old=true;
+	    var img2 = document.getElementById('canvas1');
+	    var img1 = document.getElementById('img1');
+	    var canvasPosition = getPosition(img2);
+	    console.log(canvasPosition.x);
+	    console.log(canvasPosition.y);
+	    var canvas = document.getElementById("to-pdf");
+	    var context = canvas.getContext("2d");
+	    var width = img1.width;
+	    var height = img1.height;
+	    canvas.width = width;
+	    canvas.height = height;
+	    var pixels = 4 * width * height;
+	    context.drawImage(img1, 0, 0);
+	    var image1 = context.getImageData(0, 0, width, height);
+	    var imageData1 = image1.data;
+	    context.moveTo(canvasPosition.x-98,canvasPosition.y-280);
+	    context.lineTo(canvasPosition.x,canvasPosition.y);
+	    context.drawImage(img2,0, 0 );
 		
-	// 	var dataURL = canvas.toDataURL();
-	// 	console.log(dataURL);
+	 	var dataURL = canvas.toDataURL();
+	
 	// // var imgData = canvas.toDataURL("image/jpeg", 1.0);
 	// // var pdf = new jsPDF();
 	// // pdf.addImage(imgData, 'JPEG', 0, 0);
 	// // pdf.save("download.pdf");
-	// var pdf = new jsPDF('p','pt','a4');
-	// pdf.addHTML(document.body,function() {
-	// pdf.save('web.pdf');
-});
+	 	var pdf = new jsPDF('p','pt','a4');
+	 	pdf.addHTML(document.body,function() {
+	 		pdf.save('web.pdf');
+		});
   }
 
 

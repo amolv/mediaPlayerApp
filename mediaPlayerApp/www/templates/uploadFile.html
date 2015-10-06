@@ -1,7 +1,7 @@
 <ion-view view-title="uploadFile">
     <ion-content direction="x">
     <div ng-hide='hide_old'>
-		<input type="file"  accept="*/*" capture="camera" id="file_browse" onchange="angular.element(this).scope().updateattachment()" multiple/>
+		
 		<pdf-viewer ng-hide='pdfhide' delegate-handle="my-pdf-container"  url="pdfUrl" scale="1" show-toolbar="true"></pdf-viewer>
         <p><br><canvas id="canvas"></canvas></p>
         <p><br><canvas id="canvas1"></canvas></p>
@@ -10,7 +10,8 @@
     </ion-content>
     <ion-footer-bar  class="bar">
 		  <div class="buttons">
-		    <button class="button">Cancel</button>
+		  	<input type="file"  accept="*/*" capture="camera" id="file_browse" onchange="angular.element(this).scope().updateattachment()" multiple/>
+		    
 		  </div>
 		  <div class="buttons" >
 		    <button class="button" ng-click="getTouchposition()">Touch to Sign</button>
