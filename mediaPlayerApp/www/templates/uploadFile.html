@@ -1,19 +1,13 @@
 <ion-view view-title="uploadFile">
-    <ion-content ng-hide='true' scroll="false">
+    <ion-content scroll="false">
     <div ng-hide='hide_old'>
 		<input type="file" accept="*/*" capture="camera" id="file_browse" onchange="angular.element(this).scope().updateattachment()" multiple/>
 		<pdf-viewer delegate-handle="my-pdf-container"  url="pdfUrl" scale="0.670" ></pdf-viewer>
         <p><br><canvas id="canvas"></canvas></p>
         <p><br><canvas id="canvas1"></canvas></p>
     </div>
-        <canvas></canvas>
+        <canvas id='to-pdf'></canvas>
     </ion-content>
-         <ion-content>
-         <div id='to-pdf'>
-         	
-         </div>
-         </ion-content>
-
     <ion-footer-bar  class="bar">
 		  <div class="buttons">
 		    <button class="button">Cancel</button>
@@ -22,7 +16,7 @@
 		    <button class="button" ng-click="getTouchposition()">Touch to Sign</button>
 		  </div>
 		  <div class="buttons" >
-		    <button class="button" ng-click="merge()">Marge</button>
+		    <button class="button" ng-click="merge()">Merge</button>
 		  </div>
 	</ion-footer-bar>
 </ion-view>

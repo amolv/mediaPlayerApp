@@ -5,56 +5,54 @@ angular.module('starter.controllers')
 	$scope.pdfUrl ="http://n2.transparent.sg:3000/assets/pdfs/test/1444037006795.pdf"
 	pdfDelegate.$getByHandle('my-pdf-container').load($scope.pdfUrl);
 
-		var currPage = 1; //Pages are 1-based not 0-based
-		var numPages = 0;
-		//var thePDF = null;
+		// var currPage = 1; //Pages are 1-based not 0-based
+		// var numPages = 0;
+		// //var thePDF = null;
 
-		PDFJS.getDocument($scope.pdfUrl).then(function(pdf) {
+		// PDFJS.getDocument($scope.pdfUrl).then(function(pdf) {
 
-		//Set PDFJS global object (so we can easily access in our page functions
-		console.log(pdf);
-		thePDF = pdf;
+		// //Set PDFJS global object (so we can easily access in our page functions
+		// console.log(pdf);
+		// thePDF = pdf;
 
-		//How many pages it has
-		numPages = pdf.numPages;
-		console.log(numPages);
-		//Start with first page
-		pdf.getPage( 1 ).then( handlePages );
-		});
+		// //How many pages it has
+		// numPages = pdf.numPages;
+		// console.log(numPages);
+		// //Start with first page
+		// pdf.getPage( 1 ).then( handlePages );
+		// });
 
+		// function handlePages(page){
+		// 	//This gives us the page's dimensions at full scale
+		// 	var viewport = page.getViewport( 1 );
 
+		// 	//We'll create a canvas for each page to draw it on
+		// 	var canvas = document.getElementById( "canvas" );
+		// 	console.log(canvas);
+		// 	canvas.style.display = "block";
+		// 	var context = canvas.getContext('2d');
+		// 	canvas.height = viewport.height;
+		// 	canvas.width = viewport.width;
 
-		function handlePages(page){
-			//This gives us the page's dimensions at full scale
-			var viewport = page.getViewport( 1 );
+		// 	//Draw it on the canvas
+		// 	page.render({canvasContext: context, viewport: viewport});
 
-			//We'll create a canvas for each page to draw it on
-			var canvas = document.getElementById( "canvas" );
-			console.log(canvas);
-			canvas.style.display = "block";
-			var context = canvas.getContext('2d');
-			canvas.height = viewport.height;
-			canvas.width = viewport.width;
+		// 	//Add it to the web page
+		// 	document.getElementById('to-pdf').appendChild( canvas );
 
-			//Draw it on the canvas
-			page.render({canvasContext: context, viewport: viewport});
-
-			//Add it to the web page
-			document.getElementById('to-pdf').appendChild( canvas );
-
-			//Move to next page
-			currPage++;
-			if ( thePDF !== null && currPage <= numPages )
-			{
-			thePDF.getPage( currPage ).then( handlePages );
-			}
+		// 	//Move to next page
+		// 	currPage++;
+		// 	if ( thePDF !== null && currPage <= numPages )
+		// 	{
+		// 	thePDF.getPage( currPage ).then( handlePages );
+		// 	}
 			
-			var pdf = new jsPDF('p','pt','a4');
-			pdf.addHTML(document.getElementById('to-pdf'),function() {
-			pdf.save('web.pdf');
-			});
+		// 	var pdf = new jsPDF('p','pt','a4');
+		// 	pdf.addHTML(document.getElementById('to-pdf'),function() {
+		// 	pdf.save('web.pdf');
+		// 	});
 
-		}
+		// }
 
 
 	$scope.updateattachment = function(){
